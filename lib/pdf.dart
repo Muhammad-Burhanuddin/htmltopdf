@@ -1,12 +1,12 @@
 import 'dart:typed_data';
-
-import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 
-Future<Uint8List> generateReport(PdfPageFormat format) async =>
+Future<Uint8List> generateReport() async =>
+
     await Printing.convertHtml(
-      format: PdfPageFormat.a4,
-      html: '''<html>
+
+      html: '''<!doctype html>
+<html>
 <head>
 <meta charset="utf-8">
 <title>Fee Challan 20230200893 - Minhaj University Lahore</title>
@@ -20,8 +20,8 @@ body {overflow: -moz-scrollbars-vertical; margin:0; font-family: Arial, Helvetic
 @media print {
 	.page-break	{ display: block; page-break-before: always; }
 	@page { 
-	
-	margin: 4mm 4mm 4mm 4mm; 
+		size: A4 landscape;
+	  margin: 0mm; 
 	}
 }
 h1 { text-align:left; margin:0; margin-top:0; margin-bottom:0px; font-size:18px; font-weight:700; text-transform:uppercase; }
@@ -166,11 +166,11 @@ td { padding-bottom:4px; font-family: Arial, Helvetica, sans-serif, Calibri, "Ca
 	<td style="text-align:right; width:45%;"></td>
 </tr>
 <tr>
-	<td>Furniture Fund</td>
+	<td>Security Fee (Refundable)</td>
 	<td style="text-align:right; width:45%;"></td>
 </tr>
 <tr>
-	<td>Security Fee (Refundable)</td>
+	<td>Hostel Admission Fee</td>
 	<td style="text-align:right; width:45%;"></td>
 </tr>
 <tr>
@@ -222,7 +222,7 @@ td { padding-bottom:4px; font-family: Arial, Helvetica, sans-serif, Calibri, "Ca
 	<td style="text-align:right; font-size:12px; font-weight:bold;  border:2px solid #333;">1,810</td>
 </tr>
 </table>
-<span style="font-size:9px; float:right; margin-top:3px;">issue Date: 03/03/2023</span>
+<span style="font-size:9px; float:right; margin-top:3px;">issue Date: 05/03/2023</span>
 </div>
 
 <div style="clear:both;"></div>
@@ -327,11 +327,11 @@ accepted.<br>
 	<td style="text-align:right; width:45%;"></td>
 </tr>
 <tr>
-	<td>Furniture Fund</td>
+	<td>Security Fee (Refundable)</td>
 	<td style="text-align:right; width:45%;"></td>
 </tr>
 <tr>
-	<td>Security Fee (Refundable)</td>
+	<td>Hostel Admission Fee</td>
 	<td style="text-align:right; width:45%;"></td>
 </tr>
 <tr>
@@ -383,7 +383,7 @@ accepted.<br>
 	<td style="text-align:right; font-size:12px; font-weight:bold;  border:2px solid #333;">1,810</td>
 </tr>
 </table>
-<span style="font-size:9px; float:right; margin-top:3px;">issue Date: 03/03/2023</span>
+<span style="font-size:9px; float:right; margin-top:3px;">issue Date: 05/03/2023</span>
 </div>
 
 <div style="clear:both;"></div>
@@ -488,11 +488,11 @@ accepted.<br>
 	<td style="text-align:right; width:45%;"></td>
 </tr>
 <tr>
-	<td>Furniture Fund</td>
+	<td>Security Fee (Refundable)</td>
 	<td style="text-align:right; width:45%;"></td>
 </tr>
 <tr>
-	<td>Security Fee (Refundable)</td>
+	<td>Hostel Admission Fee</td>
 	<td style="text-align:right; width:45%;"></td>
 </tr>
 <tr>
@@ -544,7 +544,7 @@ accepted.<br>
 	<td style="text-align:right; font-size:12px; font-weight:bold;  border:2px solid #333;">1,810</td>
 </tr>
 </table>
-<span style="font-size:9px; float:right; margin-top:3px;">issue Date: 03/03/2023</span>
+<span style="font-size:9px; float:right; margin-top:3px;">issue Date: 05/03/2023</span>
 </div>
 
 <div style="clear:both;"></div>

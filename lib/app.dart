@@ -66,18 +66,26 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
           title: const Text('Flutter PDF Demo'),
         ),
         body: PdfPreview.builder(
-            build: (format) => generateReport(format),
+      
+        initialPageFormat: PdfPageFormat.a4.landscape,
+        canChangeOrientation: false,
+       canDebug: false,
+          allowPrinting: true,
+          
+       //   maxPageWidth: double.infinity,
+            build: (format) => generateReport(),
             pagesBuilder: (context, pages) => SingleChildScrollView(
+              
                   child: Wrap(
-                    spacing: 8,
+                  
                     runSpacing: 8,
                     children: [
                       for (final page in pages)
-                        Container(
+                        Container(                       
                           color: Colors.white,
                           child: Image(
                             image: page.image,
-                             width: 300,
+                                                
                           ),
                         )
                     ],
