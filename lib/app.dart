@@ -51,13 +51,12 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     await file.writeAsBytes(bytes);
     await OpenFile.open(file.path);
   }
-
   @override
   Widget build(BuildContext context) {
     final actions = <PdfPreviewAction>[
       if (!kIsWeb)
         PdfPreviewAction(
-          icon: const Icon(Icons.save),
+          icon: const Icon(Icons.save_alt_outlined),
           onPressed: _saveAsFile,
         )
     ];
@@ -67,9 +66,12 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
           title: const Text('Flutter PDF Demo'),
         ),
         body: PdfPreview(
+         
+          useActions: true,
+        actions: actions,
             canChangeOrientation: false,
             canDebug: false,
-            allowPrinting: true,
+            allowPrinting: false,
             canChangePageFormat: false,
           pdfFileName: 'feechallan',
             initialPageFormat: PdfPageFormat.a4.landscape,
