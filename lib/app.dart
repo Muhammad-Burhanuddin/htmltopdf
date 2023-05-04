@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
+
 import 'package:printing/printing.dart';
 
 import 'pdf.dart';
@@ -65,37 +66,14 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         appBar: AppBar(
           title: const Text('Flutter PDF Demo'),
         ),
-        body: PdfPreview.builder(
-      
-        initialPageFormat: PdfPageFormat.a4.landscape,
-        canChangeOrientation: false,
-       canDebug: false,
-          allowPrinting: true,
+        body: PdfPreview(
+            canChangeOrientation: false,
+            canDebug: false,
+            allowPrinting: true,
+            canChangePageFormat: false,
           
-       //   maxPageWidth: double.infinity,
-            build: (format) => generateReport(),
-            pagesBuilder: (context, pages) => SingleChildScrollView(
-              
-                  child: Wrap(
-                  
-                    runSpacing: 8,
-                    children: [
-                      for (final page in pages)
-                        Container(                       
-                          color: Colors.white,
-                          child: Image(
-                            image: page.image,
-                                                
-                          ),
-                        )
-                    ],
-                  ),
-                )
-            // (
-            //   initialPageFormat: PdfPageFormat.a4,
-            //   build: (format) => generateReport(format),
-            //   actions: actions,
-            // ),
-            ));
+            initialPageFormat: PdfPageFormat.a4.landscape,
+            build: (formate) => generateReport(),
+           ));
   }
 }

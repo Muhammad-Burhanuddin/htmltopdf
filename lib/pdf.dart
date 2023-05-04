@@ -1,11 +1,15 @@
+import 'dart:convert';
 import 'dart:typed_data';
+import 'package:pdf/pdf.dart';
 import 'package:printing/printing.dart';
 
 Future<Uint8List> generateReport() async =>
+    await   Printing.convertHtml(
+            format: PdfPageFormat.a4.landscape,
 
-    await Printing.convertHtml(
+      html: '''
 
-      html: '''<!doctype html>
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -18,10 +22,14 @@ body {overflow: -moz-scrollbars-vertical; margin:0; font-family: Arial, Helvetic
 }
 
 @media print {
+  html
+    {
+        transform: scale(0.95);
+    }
 	.page-break	{ display: block; page-break-before: always; }
 	@page { 
-		size: A4 landscape;
-	  margin: 0mm; 
+		size: a4 landscape;
+	  margin: 0mm;
 	}
 }
 h1 { text-align:left; margin:0; margin-top:0; margin-bottom:0px; font-size:18px; font-weight:700; text-transform:uppercase; }
