@@ -46,7 +46,7 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
 
     final appDocDir = await getApplicationDocumentsDirectory();
     final appDocPath = appDocDir.path;
-    final file = File('$appDocPath/document.pdf');
+    final file = File('$appDocPath/feechallan.pdf');
     print('Save as file ${file.path} ...');
     await file.writeAsBytes(bytes);
     await OpenFile.open(file.path);
@@ -71,7 +71,7 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
             canDebug: false,
             allowPrinting: true,
             canChangePageFormat: false,
-          
+          pdfFileName: 'feechallan',
             initialPageFormat: PdfPageFormat.a4.landscape,
             build: (formate) => generateReport(),
            ));
